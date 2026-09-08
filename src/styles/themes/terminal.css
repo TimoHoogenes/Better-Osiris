@@ -1,0 +1,46 @@
+/* A late-night terminal: near-black graphite, phosphor green, and amber diagnostics. */
+html[data-theme="terminal"] {
+   color-scheme: dark;
+
+   --page-canvas: #07110d;
+   --page-background:
+      radial-gradient(ellipse at 10% -12%, rgba(42, 204, 126, 0.12), transparent 34%),
+      radial-gradient(ellipse at 92% 105%, rgba(9, 91, 57, 0.16), transparent 42%), linear-gradient(150deg, #0b1b14 0%, #07110d 50%, #030806 100%);
+
+   --line: rgba(157, 239, 189, 0.15);
+   --line-strong: rgba(81, 229, 132, 0.34);
+   --text-strong: #e9fff0;
+   --text-dim: #c0ddca;
+   --text-muted: #8caa96;
+   --accent: #55e08b;
+   --accent-rgb: 85, 224, 139;
+   --warning: #f2bb59;
+   --warning-rgb: 242, 187, 89;
+   --danger: #f1747e;
+   --danger-rgb: 241, 116, 126;
+   --danger-bright: #ffb7bd;
+   --surface-rgb: 12, 25, 18;
+   --highlight-rgb: 233, 255, 240;
+   --overlay-surface: rgba(11, 25, 18, 0.98);
+   --backdrop: rgba(1, 7, 4, 0.68);
+   --backdrop-strong: rgba(1, 7, 4, 0.74);
+   --frame-veil: 0.93;
+   --class-surface: rgba(18, 38, 27, 0.98);
+   --class-surface-raised: rgba(25, 51, 36, 1);
+   --class-border: rgba(85, 224, 139, 0.2);
+   --class-border-raised: rgba(85, 224, 139, 0.46);
+   --class-surface-cancelled: rgba(66, 26, 31, 0.98);
+   --shadow: 0 28px 90px rgba(0, 7, 3, 0.78);
+
+   --chrome-strong: #e9fff0;
+   --chrome-dim: #c0ddca;
+   --chrome-muted: #82aa90;
+   --chrome-accent: #66ef9d;
+   --chrome-accent-rgb: 102, 239, 157;
+   --chrome-warning: #f7c967;
+   --chrome-warning-rgb: 247, 201, 103;
+   --chrome-highlight-rgb: 233, 255, 240;
+   --chrome-line: rgba(157, 239, 189, 0.15);
+   --chrome-line-strong: rgba(102, 239, 157, 0.36);
+   --chrome-surface: rgba(7, 24, 15, 0.94);
+}

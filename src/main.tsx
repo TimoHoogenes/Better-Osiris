@@ -16,6 +16,8 @@ import "./styles/themes/ember.css";
 import "./styles/themes/abyss.css";
 import "./styles/themes/contrast.css";
 import "./styles/themes/noir.css";
+import "./styles/themes/terminal.css";
+import "./styles/terminal-code.css";
 import "./styles/themes/light.css";
 import "./styles/themes/thaw.css";
 import "./styles/themes/latte.css";

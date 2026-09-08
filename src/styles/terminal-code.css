@@ -1,0 +1,87 @@
+/* Terminal is deliberately quiet: the roster stays the foreground, while code signals
+   give its grid and agenda a developer-tool character. */
+html[data-theme="terminal"] body::after {
+   content: "";
+   position: fixed;
+   inset: 0;
+   z-index: 1;
+   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='640' height='800' viewBox='0 0 640 800'%3E%3Cg fill='%2355e08b' font-family='monospace' font-size='13' font-weight='700'%3E%3Ctext x='40' y='-960' writing-mode='vertical-rl' glyph-orientation-vertical='0'%3E01001101001011010110010010110100101100100101101001011001011001010100110100101101011001001011010010110010010110100101100101100101%3C/text%3E%3Ctext x='220' y='-530' writing-mode='vertical-rl' glyph-orientation-vertical='0'%3E10010110100101001011010110100100101101001010011010010110100101101001011010010100101101011010010010110100101001101001011010010110%3C/text%3E%3Ctext x='310' y='-1120' writing-mode='vertical-rl' glyph-orientation-vertical='0'%3E00101101001011010010110100101101001011010010110100101101001011010010110100101101001011010010110100101101001011010010110100101101%3C/text%3E%3Ctext x='530' y='-690' writing-mode='vertical-rl' glyph-orientation-vertical='0'%3E11010010110100101101001011010010110100101101001011010010110100101101001011010010110100101101001011010010110100101101001011010010%3C/text%3E%3C/g%3E%3C/svg%3E");
+   background-repeat: repeat;
+   background-position: 0 -800px;
+   background-size: 640px 800px;
+   opacity: 0.055;
+   pointer-events: none;
+   will-change: background-position;
+   -webkit-mask-image: linear-gradient(to bottom, transparent 0 14%, #000 31%, #000 84%, transparent);
+   mask-image: linear-gradient(to bottom, transparent 0 14%, #000 31%, #000 84%, transparent);
+   animation: terminal-rain 30s linear infinite;
+}
+
+html[data-theme="terminal"] :is(.agenda-class__time, .grid-time-slot, .grid-class, .class-panel__time-value, .class-panel__status) {
+   font-family: ui-monospace, "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+}
+
+html[data-theme="terminal"] .app-content-frame {
+   border-radius: 10px;
+   box-shadow: inset 0 1px 0 rgba(var(--accent-rgb), 0.07);
+}
+
+html[data-theme="terminal"] .day-group__daymark {
+   border-radius: 4px;
+}
+
+html[data-theme="terminal"] .day-group__weekday::before {
+   content: "$ ";
+   color: var(--accent);
+   font-family: ui-monospace, "Cascadia Code", "SFMono-Regular", Consolas, monospace;
+   font-weight: 500;
+}
+
+html[data-theme="terminal"] .agenda-class {
+   border-radius: 5px;
+}
+
+html[data-theme="terminal"] .agenda-class__time::before {
+   content: "// ";
+   color: var(--text-muted);
+}
+
+html[data-theme="terminal"] .grid-header,
+html[data-theme="terminal"] .grid-time-column {
+   background: rgba(5, 16, 10, 0.88);
+}
+
+html[data-theme="terminal"] .grid-header__day-pill {
+   border-radius: 4px;
+}
+
+html[data-theme="terminal"] .grid-class {
+   border-radius: 3px;
+   box-shadow:
+      inset 0 1px 0 rgba(var(--highlight-rgb), 0.045),
+      3px 0 0 rgba(var(--accent-rgb), 0.12);
+}
+
+html[data-theme="terminal"] .grid-class strong {
+   letter-spacing: -0.025em;
+}
+
+html[data-theme="terminal"] .class-panel__card {
+   border-radius: 8px;
+}
+
+@keyframes terminal-rain {
+   from {
+      background-position: 0 -800px;
+   }
+
+   to {
+      background-position: 0 0;
+   }
+}
+
+@media (prefers-reduced-motion: reduce) {
+   html[data-theme="terminal"] body::after {
+      animation: terminal-rain 30s linear infinite !important;
+   }
+}

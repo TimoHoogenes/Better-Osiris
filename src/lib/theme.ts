@@ -23,6 +23,7 @@ export const THEMES_BY_MODE = {
       { id: "abyss", label: "Abyss", icon: "fa-solid fa-water", swatchBackground: "#061c2a", swatchIconColor: "#5de1d4" },
       { id: "noir", label: "Noir", icon: "fa-solid fa-hat-cowboy-side", swatchBackground: "#000000", swatchIconColor: "#f0f0f0" },
       { id: "contrast", label: "Contrast", icon: "fa-solid fa-circle-half-stroke", swatchBackground: "#050505", swatchIconColor: "#d7ff3f" },
+      { id: "terminal", label: "Terminal", icon: "fa-solid fa-terminal", swatchBackground: "#07110d", swatchIconColor: "#55e08b" },
    ],
    light: [
       { id: "light", label: "Light", icon: "fa-solid fa-sun", swatchBackground: "#f2f5fa", swatchIconColor: "#1468c8" },
@@ -43,6 +44,7 @@ const ALL_THEMES: readonly Theme[] = [...THEMES_BY_MODE.dark, ...THEMES_BY_MODE.
 
 export const DEFAULT_THEME = "dark" satisfies ThemeId;
 export const THEME_STORAGE_KEY = "roster-theme";
+const LEGACY_THEME_IDS: Readonly<Record<string, ThemeId>> = { verdigris: "terminal" };
 
 const THEME_FADE_CLASS = "theme-fade";
 const THEME_FADE_MS = 400;
@@ -55,6 +57,10 @@ export function isThemeId(value: string | null): value is ThemeId {
 
 export function getStoredTheme(): ThemeId {
    const stored = readBrowserStorage("localStorage", THEME_STORAGE_KEY);
+   if (stored !== null && stored in LEGACY_THEME_IDS) {
+      return LEGACY_THEME_IDS[stored];
+   }
+
    return isThemeId(stored) ? stored : getDeviceThemeMode();
 }
 

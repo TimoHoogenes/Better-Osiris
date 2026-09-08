@@ -31,6 +31,11 @@ void describe("getStoredTheme", () => {
       assert.equal(getStoredTheme(), DEFAULT_THEME);
    });
 
+   void it("keeps the former Verdigris choice as Terminal", () => {
+      installStorage({ "roster-theme": "verdigris" });
+      assert.equal(getStoredTheme(), "terminal");
+   });
+
    void it("uses the light primary for a fresh light system", () => {
       installStorage({}, true);
       assert.equal(getStoredTheme(), "light");
